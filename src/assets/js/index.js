@@ -4,9 +4,9 @@ function TiMu(){
 		div.className = "entrance-bottom-frame-line";
 		document.querySelector(".entrance-bottom-frame").appendChild(div);
 		
-		var beijing = document.createElement("div");
-		beijing.className = "entrance-bottom-frame-beijing";
-		document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(beijing);
+//		var beijing = document.createElement("div");
+//		beijing.className = "entrance-bottom-frame-beijing";
+//		document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(beijing);
 		
 		
 		var div2 = document.createElement("div");
@@ -137,7 +137,7 @@ window.onload = function(){
 				addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
 				removeClass(document.querySelector(".entrance-bottom-frameli").children[timu_id-1], active)
 				removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id-1], active)
-				addClass(document.querySelectorAll(".entrance-bottom-frame-beijing")[timu_id-1],none)
+//				addClass(document.querySelectorAll(".entrance-bottom-frame-beijing")[timu_id-1],none)
 				setTimeout(function(){document.querySelector("#timer").style.opacity = 1},700)
 			}else{
 				window.location.href='result.html';

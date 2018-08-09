@@ -1,6 +1,5 @@
 function JieGuo(){
 	var clientW = document.querySelector("body").clientWidth
-	console.log(clientW)
 	document.querySelector("#main").style.height = 5*100 * (clientW/ 750) + "px" 
 	
 	var myChart = echarts.init(document.getElementById('main'));
