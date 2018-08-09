@@ -1,0 +1,86 @@
+.index{width: 100%;}
+#timer{float: right;margin-left: 10px;position: absolute;right: 0.35rem;font-size: 0.3rem;color: #8a8a8a;top: 1.25rem;}
+
+.entrance-header{border-bottom: 1px solid #e5e5e5;width: 100%;height: 1rem;line-height: 1rem;z-index: 99;position:fixed;top:0;background: white;font-size: 0.36rem;text-align: center;}
+.entrance-header-return{width: 0.2rem;position: absolute;left: 0.25rem;top: 0.35rem;} 
+.entrance-center{width: 100%;margin-top: 0.9rem;padding: 0 0.45rem;box-sizing: border-box;padding-bottom: 2rem;}
+.entrance-center-title{padding-top: 0.6rem;font-size:0.48rem;color: #333333;}
+.entrance-center-text{width: 100%;font-size:0.27rem;color: #666666;line-height: 0.5rem;margin-top: 0.45rem;}
+.entrance-center-title1{font-size: 0.36rem;color: #333333;margin-top: 70px;}
+.entrance-center-frame{width: 100%;margin-top: 0.05rem;}
+.entrance-center-line{background: #fff9f3;border: 1px solid #ff9215;padding:0 0.1rem;height: 0.5rem;line-height: 0.5rem;color: #ff9215;font-size: 0.24rem;border-radius: 0.05rem;float: left;margin-right: 0.1rem;margin-top: 0.2rem;}
+.entrance-button{background: url(../img/evaluating/button.png);background-size:cover ;position: fixed;bottom: 0;left: 0;width: 100%;height: 1.2rem;color: white;font-size: 0.36rem;text-align: center;line-height: 1.2rem;}
+.entrance-button a{color: white;}
+
+.entrance-bottom{width: 100%;margin-top:1rem;overflow: hidden;position: relative;height: 15rem;}
+.entrance-bottom-frameli{width: 10000%;overflow: hidden;height: 0.5rem;margin-top: 0.35rem;}
+.entrance-bottom-frameli>div{width: 0.35rem;border-top: 0.09rem solid #f0f0f0;float: left;margin: 0 0.15rem;margin-top: 0.02rem;}
+.entrance-bottom-frameli>div:first-child{margin-left: 0.3rem;}
+.entrance-bottom-frameli>div.active{border-top: 0.12rem solid #34c4ff;margin-top: 0;}
+.entrance-bottom-frameli>div>div{font-size: 0.24rem;color:#34c4ff;text-align: center;display: none;}
+.entrance-bottom-frameli>div.active>div{display: block;}
+.entrance-bottom-frame{transition: all 0.8s;width: 10000%;margin: 0 auto;margin-top:0.3rem;position: absolute;}
+.entrance-bottom-frame-beijing{position: absolute;z-index: 1;width: 100%;height: 100%;top:0;left: 0;background: url(../img/evaluating/yincang.png);background-size:cover;}
+.entrance-bottom-frame-line{ -webkit-filter: grayscale(100%);/* CSS3 filter方式，webkit内核方式，firefox外的绝大部分的现代浏览器*/  
+       -moz-filter: grayscale(100%);            /* 目前没有实现 */  
+       -ms-filter: grayscale(100%);  
+       -o-filter: grayscale(100%);  
+       filter: grayscale(100%);            /* CSS3 filter方式，标准写法*/  
+       filter: gray;                       /* IE 6-9 */ 
+       transition: all 0.8s;pointer-events: none;cursor: default;width: 1%;float: left;position: relative;padding: 0 0.35rem;box-sizing: border-box;}
+.entrance-bottom-frame-line-id{font-size: 30px;color: white;text-align:center;line-height: 60px;position: absolute;left: 50%;margin-left: -30px;height: 60px;width: 60px;background: url(../img/evaluating/e-id.png);background-size: cover;top: -30px;}
+.entrance-bottom-frame-line-title{font-size: 0.3rem;width: calc(100% - 1rem);margin-bottom: 0.3rem;line-height: 0.5rem;}
+.entrance-bottom-frame-line-button{transition: margin 0.8s;position: relative;cursor: pointer;width: 100%;height: 1.1rem;margin-bottom:0.3rem;float: left;box-sizing: border-box;background: #f7f7f7;border-radius: 0.54rem;padding: 0 0.5rem;}
+.entrance-bottom-frame-line-button-frame{width: 100%;height: 1.1rem;display: table-cell; vertical-align:middle;font-size: 0.27rem;padding-left: 0.35rem;}
+.entrance-bottom-frame-line-button-id{height: 1.1rem;display: table-cell;line-height: 1.1rem;font-size: 0.36rem;}
+.entrance-bottom-frame-line-button:hover{color: white; background: -webkit-linear-gradient(left,#ff916a, #ff6a6b); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right,#ff916a, #ff6a6b); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right,#ff916a, #ff6a6b); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right,#ff916a, #ff6a6b); /* 标准的语法 */}
+.entrance-bottom-frame-line.active{pointer-events: auto;-webkit-filter: grayscale(0%);/* CSS3 filter方式，webkit内核方式，firefox外的绝大部分的现代浏览器*/  
+       -moz-filter: grayscale(0%);            /* 目前没有实现 */  
+       -ms-filter: grayscale(0%);  
+       -o-filter: grayscale(0%);  
+       filter: grayscale(0%);            /* CSS3 filter方式，标准写法*/  
+       filter: none;   }
+.entrance-bottom-frame-line.active .entrance-bottom-frame-beijing{display: none;}
+.entrance-bottom-frame-beijing.none{background: #000000;opacity: 0.2;}
+.pre_message{
+    width: 100%;
+    height: 5.4rem;
+    line-height: 0.4rem;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding:0.25rem;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+    /*white-space: pre-wrap;*/
+    word-break: normal;
+	margin: 0 auto;
+	font-size: 0.24rem;
+	background: #f5faff;
+	margin-bottom: 0.5rem;
+}
+.pre_message code{width: 100%;}
+.result{background: #f1f1f5;}
+.result-top{background: white;margin-bottom: 0.1rem;}
+.result-line{background: #FFFFFF;margin-top:1.35rem;padding: 0 0.35rem;box-sizing: border-box;position: relative;}
+.result-line-title{font-size: 0.48rem;color: #333333;margin-bottom: 0.15rem;width: calc(100% - 1.3rem)}
+.result-line-time{color: #bebebe;font-size: 0.24rem;width: calc(100% - 1.3rem)}
+.result-line-frame{position: absolute;right: 0.35rem;top: 0.1rem;text-align: center;width: 1.2rem;height: 0.8rem;border: 1px solid #d9d9d9;border-radius: 3px;float: right;box-sizing: border-box;}
+.result-line-frame div:first-child{color: #f58954;font-size: 0.36rem;margin-bottom: 0.05rem;}
+.result-line-frame div:last-child{color: #888888;font-size: 0.2rem;}
+.result-center{background: white;padding: 0 0.35rem;box-sizing: border-box;margin-bottom: 0.1rem;}
+.result-center-title{font-size: 0.36rem;color: #333333;line-height: 1rem;}
+.result-center-frame{height: 2.2rem;width: 100%;padding-top: 0.2rem;}
+.result-center-frame-line{width: 2rem;text-align: center;height: 2.2rem;float: left;}
+.result-center-frame-line img{width: 0.9rem;}
+.result-center-frame-line1{width: 2.8rem;text-align: center;height: 2.2rem;float: left;}
+.result-center-frame-line1 img{width: 1.25rem;}
+.result-center-frame-line-text{font-size: 0.2rem;color: #6d6d6d;margin-top: 0.2rem;}
+.result-bottom{background: white;}
+.result-bottom-line{width: 100%;padding: 0 0.2rem;box-sizing: border-box;height: 1rem;line-height: 1rem;border-bottom: 1px solid #f9f9f9;}
+.result-bottom-line-left{font-size: 0.27rem;color: #939393;float: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 6.4rem;}
+.result-bottom-line-left img{width: 0.19rem;float: left;margin: 0.37rem 0.2rem;}
+.result-bottom-line-right{font-size: 0.27rem;color: #f58954;float: right;}
