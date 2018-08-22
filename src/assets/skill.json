@@ -1,0 +1,138 @@
+{
+	"menumain": [{
+		"title": "软件能力",
+		"links": [{
+            "name": "PS",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "AI",
+            "skilled": "熟悉",
+            "num": "66.66"
+        },
+        {
+            "name": "CDR",
+            "skilled": "了解",
+            "num": "33.33"
+        },
+        {
+            "name": "AE",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "C4D",
+            "skilled": "熟悉",
+            "num": "66.66"
+        }]
+	},{
+		"title": "管理能力",
+		"links": [{
+            "name": "PS2",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "AI2",
+            "skilled": "熟悉",
+            "num": "66.66"
+        },
+        {
+            "name": "CDR2",
+            "skilled": "了解",
+            "num": "33.33"
+        },
+        {
+            "name": "AE2",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "C4D2",
+            "skilled": "熟悉",
+            "num": "66.66"
+        }]
+	},{
+		"title": "沟通功能",
+		"links": [{
+            "name": "PS3",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "AI3",
+            "skilled": "熟悉",
+            "num": "66.66"
+        },
+        {
+            "name": "CDR3",
+            "skilled": "了解",
+            "num": "33.33"
+        },
+        {
+            "name": "AE3",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "C4D3",
+            "skilled": "熟悉",
+            "num": "66.66"
+        }]
+	},{
+		"title": "领导功能",
+		"links": [{
+            "name": "PS",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "AI",
+            "skilled": "熟悉",
+            "num": "66.66"
+        },
+        {
+            "name": "CDR",
+            "skilled": "了解",
+            "num": "33.33"
+        },
+        {
+            "name": "AE",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "C4D",
+            "skilled": "熟悉",
+            "num": "66.66"
+        }]
+	},{
+		"title": "管理功能",
+		"links": [{
+            "name": "PS",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "AI",
+            "skilled": "熟悉",
+            "num": "66.66"
+        },
+        {
+            "name": "CDR",
+            "skilled": "了解",
+            "num": "33.33"
+        },
+        {
+            "name": "AE",
+            "skilled": "精通",
+            "num": "100"
+        },
+        {
+            "name": "C4D",
+            "skilled": "熟悉",
+            "num": "66.66"
+        }]
+	}]
+}

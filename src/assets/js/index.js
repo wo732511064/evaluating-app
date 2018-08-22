@@ -69,7 +69,7 @@ function banner() {
 		// moveUl.style.transform = 'translateX('+index*width*-1+'px)';
 		setTransform(index * width * -1);
 
-	}, 3000);
+	}, 5000);
 
 	function li() {
 		for(var i = 0; i < indexLiArr.length; i++) {
@@ -100,7 +100,7 @@ function banner() {
 					// moveUl.style.transform = 'translateX('+index*width*-1+'px)';
 					setTransform(index * width * -1);
 
-				}, 3000)
+				}, 5000)
 			};
 
 		}
@@ -150,7 +150,7 @@ function banner() {
 			// moveUl.style.transform = 'translateX('+index*width*-1+'px)';
 			setTransform(index * width * -1);
 
-		}, 3000)
+		}, 5000)
 
 	})
 
@@ -196,7 +196,7 @@ function banner() {
 			// moveUl.style.transform = 'translateX('+index*width*-1+'px)';
 			setTransform(index * width * -1);
 
-		}, 3000)
+		}, 5000)
 
 	})
 
@@ -252,7 +252,7 @@ function banner() {
 			// 修改 ul的位置
 			// moveUl.style.transform = 'translateX('+index*width*-1+'px)';
 			setTransform(index * width * -1);
-		}, 3000)
+		}, 5000)
 	}
 
 }
@@ -272,20 +272,12 @@ function TiMu(){
 		div2.innerHTML = data1[i].title;
 		document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(div2);
 		
-		var code = document.createElement("code");
-		var pre = document.createElement("pre");
-		code.innerHTML = data1[i].code;
-		pre.appendChild(code);
-		pre.className = "pre_message"
-		document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(pre);
 		
-		var divli = document.createElement("div");
+		
 		var divli1 = document.createElement("div");
 		divli1.innerHTML = parseInt(i) + 1;
-		divli.appendChild(divli1)
 		
-		document.querySelector(".entrance-bottom-frameli").appendChild(divli);
-		
+		var timu = 1
 		for(var j in data1[i].xuanxiang){
 			var div3 = document.createElement("div");
 			div3.className = "entrance-bottom-frame-line-button";
@@ -306,9 +298,35 @@ function TiMu(){
 			div3.appendChild(div3_id)
 			div3.appendChild(div4);
 			document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(div3);
+			timu++
 		}
 	}
-	
+	mintime = 1; 
+	var dact = document.querySelector(".entrance-bottom-frame-line")
+	var active = "active"
+	var none = "none"
+	addClass(dact, active)
+	var timu_id = 0
+	var select1 = 1
+	var frame_left = 0
+	document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+	document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu + " 题"
+	for(var i = 0;i<document.querySelectorAll(".entrance-bottom-frame-line-button").length;i++){
+		document.querySelectorAll(".entrance-bottom-frame-line-button")[i].onclick = function(){
+			if(timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1){
+				frame_left += -100
+				document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+				
+				timu_id++;
+				select1++;
+				document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu + " 题"
+				addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+				removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id-1], active)
+			}else{
+				window.location.href='resultSimplify.html';
+			}
+		}
+	}
 }
 
 function addClass(obj, cls){
@@ -349,102 +367,46 @@ function getStyle(obj,attr){
 }
 
 
-function CountDown() {
-          minutes = Math.floor(mintime / 60);
-         seconds = Math.floor(mintime % 60);
-         if(minutes < 10){
-         	minutes1 = "0" + minutes
-         }else{
-         	minutes1 = minutes
-         }
-         if(seconds < 10){
-         	seconds1 = "0" + seconds
-         }else{
-         	seconds1 = seconds
-         }
-         msg =   minutes1 + ":" + seconds1;
-         document.all["timer"].innerHTML = msg;
-//       if (maxtime == 5 * 60)alert("还剩5分钟");
-             ++mintime;
-   
-//       clearInterval(timer);
+//function CountDown() {
+//        minutes = Math.floor(mintime / 60);
+//       seconds = Math.floor(mintime % 60);
+//       if(minutes < 10){
+//       	minutes1 = "0" + minutes
+//       }else{
+//       	minutes1 = minutes
+//       }
+//       if(seconds < 10){
+//       	seconds1 = "0" + seconds
+//       }else{
+//       	seconds1 = seconds
+//       }
+//       msg =   minutes1 + ":" + seconds1;
+//       document.all["timer"].innerHTML = msg;
+////       if (maxtime == 5 * 60)alert("还剩5分钟");
+//           ++mintime;
+// 
+////       clearInterval(timer);
+//
+// }
 
- }
 
-window.onload = function(){
-	banner()
-//	TiMu()
-//	mintime = 1; 
-//  timer = setInterval("CountDown()", 1000); 
-//	var dact = document.querySelector(".entrance-bottom-frame-line")
-//	var divli = document.querySelector(".entrance-bottom-frameli").children[0]
-//	var active = "active"
-//	var none = "none"
-//	addClass(dact, active)
-//	addClass(divli, active)
-//	var timu_id = 0
-//	var frame_left = 0
-//	document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-//	for(var i = 0;i<document.querySelectorAll(".entrance-bottom-frame-line-button").length;i++){
-//		document.querySelectorAll(".entrance-bottom-frame-line-button")[i].onclick = function(){
-//			if(timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1){
-//				frame_left += -100
-//				document.querySelector("#timer").style.opacity = 0
-//				document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-//				timu_id++;
-//				addClass(document.querySelector(".entrance-bottom-frameli").children[timu_id], active)
-//				addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-//				removeClass(document.querySelector(".entrance-bottom-frameli").children[timu_id-1], active)
-//				removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id-1], active)
-////				addClass(document.querySelectorAll(".entrance-bottom-frame-beijing")[timu_id-1],none)
-//				setTimeout(function(){document.querySelector("#timer").style.opacity = 1},700)
-//			}else{
-//				window.location.href='result.html';
-//			}
-//		}
-//	}
-}
 
 
 var data1 =[ {
              "id" : "1",  
-             "title": "1.编译和运行下面代码时显示的结果是（）",  
-             "code": 
-`public class ThisConstructorCall { 
- 	public ThisConstructorCall(String s){
- 		System.out.println('s = ' + s);  
-	} 
-	public ThisConstructorCall(int i){ 
-		this('i = ' + i);  
-	} 
-	public static void main(String args[]){  
-		new ThisConstructorCall('String call');
-		new ThisConstructorCall(47); 
-	}
-}`,			
+             "title": "1. 众所周知我们所处的宇宙的质能公式是E=mc2，其中c是真空中的光速，和我们的宇宙平行的另一个宇宙meta，研究显示他们使用的质能公式是E=(2+√3)m，当一个物体质量m很大的时候，对应的能量E非常大，数据也非常的长，但meta宇宙里面的智慧生物只愿意把E取整，然后记录对应的能量E的最后一位整数，比如m=0时，他们会记录1，m=1时，他们会记录3。m=2的时候，他们会记录3。现在请问当m=100时，他们会记录多少？",  
+            
              "xuanxiang":[
-             				"打开当前目录下的文件1.txt，既可以向文件写数据，也可以从文件读数据",
-             				"ClassCastException",
-             				"FileNotFoundException",
-             				"IndexOutOfBoundsException",
+             				"String",
+             				"int",
+             				"char",
+             				"void",
              				]
 	
         },{  
              "id" : "2",  
              "title": "编译和运行下面代码时显示的结果是（）",  
-             "code": 
- `public class ThisConstructorCall { 
- 	public ThisConstructorCall(String s){
-    	System.out.println('s = ' + s);  
-	} 
-	public ThisConstructorCall(int i){ 
-		this('i = ' + i);  
-	} 
-	public static void main(String args[]){  
-		new ThisConstructorCall('String call');
-		new ThisConstructorCall(47); 
-	}
-}`,	
+            
              "xuanxiang":[
              				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
              				"ClassCastException",
@@ -454,19 +416,7 @@ var data1 =[ {
         },{  
              "id" : "3",  
              "title": "编译和运行下面代码时显示的结果是（）",  
-             "code": 
- `public class ThisConstructorCall { 
- 	public ThisConstructorCall(String s){
-    	System.out.println('s = ' + s);  
-	} 
-	public ThisConstructorCall(int i){ 
-		this('i = ' + i);  
-	} 
-	public static void main(String args[]){  
-		new ThisConstructorCall('String call');
-		new ThisConstructorCall(47); 
-	}
-}`,	
+            
              "xuanxiang":[
              				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
              				"ClassCastException",
@@ -476,19 +426,7 @@ var data1 =[ {
         },{  
              "id" : "4",  
              "title": "编译和运行下面代码时显示的结果是（）",  
-             "code": 
- `public class ThisConstructorCall { 
- 	public ThisConstructorCall(String s){
-    	System.out.println('s = ' + s);  
-	} 
-	public ThisConstructorCall(int i){ 
-		this('i = ' + i);  
-	} 
-	public static void main(String args[]){  
-		new ThisConstructorCall('String call');
-		new ThisConstructorCall(47); 
-	}
-}`,	
+            
              "xuanxiang":[
              				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
              				"ClassCastException",
@@ -498,19 +436,7 @@ var data1 =[ {
         },{  
              "id" : "5",  
              "title": "编译和运行下面代码时显示的结果是（）",  
-             "code": 
- `public class ThisConstructorCall { 
- 	public ThisConstructorCall(String s){
-    	System.out.println('s = ' + s);  
-	} 
-	public ThisConstructorCall(int i){ 
-		this('i = ' + i);  
-	} 
-	public static void main(String args[]){  
-		new ThisConstructorCall('String call');
-		new ThisConstructorCall(47); 
-	}
-}`,	
+             
              "xuanxiang":[
              				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
              				"ClassCastException",

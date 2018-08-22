@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/css.css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/reset.css"/>
+		<script type="text/javascript" src="../../assets/js/rem.js" ></script>
+	</head>
+	<body>
+		<div class="index">
+			<div class="entrance-header">
+				<a href="personal.html"><img src="../../assets/img/evaluating/return.png" class="entrance-header-return"/></a>
+				岗位技能
+			</div>
+			<div class="skill-top"></div>
+			<div class="skill-center">
+				
+			</div>
+		</div>
+	</body>
+	<script>
+		
+		
+		window.onload = function(){
+			skill(0)
+			setTimeout(function(){addclass(document.querySelectorAll(".skill-top-line")[0],"active")},500)
+		}
+		function addclass(elm,newclass){ 
+		  var classes = elm.className.split(' '); 
+		  classes.push(newclass); 
+		  elm.className = classes.join(' '); 
+		}
+		function removeClass(obj, cls){
+			var obj_class = ' '+obj.className+' ';//获取 class 内容, 并在首尾各加一个空格. ex) 'abc    bcd' -> ' abc    bcd '
+			obj_class = obj_class.replace(/(\s+)/gi, ' '),//将多余的空字符替换成一个空格. ex) ' abc    bcd ' -> ' abc bcd '
+			removed = obj_class.replace(' '+cls+' ', ' ');//在原来的 class 替换掉首尾加了空格的 class. ex) ' abc bcd ' -> 'bcd '
+			removed = removed.replace(/(^\s+)|(\s+$)/g, '');//去掉首尾空格. ex) 'bcd ' -> 'bcd'
+			obj.className = removed;//替换原来的 class.
+		}
+		function skill(n){
+			xmlHttp=new XMLHttpRequest();
+			xmlHttp.open("GET","../../assets/skill.json",true);
+			xmlHttp.send(null);
+			xmlHttp.onreadystatechange=function () {
+				if (xmlHttp.readyState ==4 && xmlHttp.status ==200){
+					if(document.querySelector(".skill-top").innerHTML == "" || document.querySelector(".skill-top").innerHTML == null){
+						for(var i in JSON.parse(xmlHttp.responseText).menumain){
+							var div = document.querySelector(".skill-top"); 
+							var dline = document.createElement("div");
+							addclass(dline,"skill-top-line");
+							dline.innerHTML = JSON.parse(xmlHttp.responseText).menumain[i].title
+							div.appendChild(dline);
+							
+						}
+					}
+					
+					
+					for(var j in JSON.parse(xmlHttp.responseText).menumain[n].links){
+						var div = document.querySelector(".skill-center"); 
+						var dline = document.createElement("div");
+						addclass(dline,"skill-center-line");
+						
+						var name = document.createElement("div");
+						addclass(name,"skill-center-name");
+						name.innerHTML = JSON.parse(xmlHttp.responseText).menumain[n].links[j].name
+						dline.appendChild(name);
+						
+						var skilled = document.createElement("div");
+						addclass(skilled,"skill-center-skilled");
+						skilled.innerHTML = JSON.parse(xmlHttp.responseText).menumain[n].links[j].skilled
+						dline.appendChild(skilled);
+						
+						var num = document.createElement("div");
+						addclass(num,"skill-center-num");
+						var numline = document.createElement("div");
+						addclass(numline,"skill-center-numline");
+						var jnum = JSON.parse(xmlHttp.responseText).menumain[n].links[j].num
+						if(jnum <= 33.33){
+							numline.style.width = jnum + "%"
+							numline.style.background = "#3ca8fe"
+						}else if(jnum <= 66.66){
+							numline.style.width = jnum + "%"
+							numline.style.background = "#c94ce4"
+						}else{
+							numline.style.width = jnum + "%"
+							numline.style.background = "#f86d07"
+						}
+						num.appendChild(numline);
+						dline.appendChild(num);
+						div.appendChild(dline);
+					}
+					for(var i=0;i<document.querySelectorAll(".skill-top-line").length;i++){
+						document.querySelectorAll(".skill-top-line")[i].index = i
+						document.querySelectorAll(".skill-top-line")[i].onclick = function(){
+							document.querySelector(".skill-center").innerHTML = "";
+							for(var li = 0;li<document.querySelectorAll(".skill-top-line").length;li++){
+								removeClass(document.querySelectorAll(".skill-top-line")[li],"active")
+							}
+							skill(this.index)
+							addclass(this,"active")
+							
+						}
+					}
+				}
+					
+				
+			}
+		}
+		
+	</script>
+</html>

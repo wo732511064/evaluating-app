@@ -3,7 +3,141 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/css.css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/reset.css"/>
+		<script type="text/javascript" src="../../assets/js/rem.js" ></script>
 	</head>
 	<body>
+		<div class="index">
+			<div class="result">
+				<div class="entrance-header">
+					我
+					<div class="entrance-header-img"><a href="#"><img src="../../assets/img/personal/share.png"></a></div>
+					<div class="entrance-header-img1"><a href="my.html"><img src="../../assets/img/personal/person.png" alt=""></a></div>
+				</div>
+				<div class="result-top">
+					<div class="result-line clearfix">
+						<div id="main" style="width:100%;margin: 0.5rem 0;"></div>
+						<div class="result-line-title">
+							项目经理能力雷达图
+						</div>
+						<div class="result-line-time">
+							2018-08-03 12:12
+						</div>
+						<div class="result-line-frame clearfix">
+							<div>能力总分</div>
+							<div>99<span>分</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="result-center">
+					<div class="result-center-title">
+						特长技能
+					</div>
+					<div class="result-center-frame clearfix">
+						<div class="result-center-frame-line">
+							<img src="../../assets/img/evaluating/golden.png"/>
+							<div class="result-center-frame-line-text">应变能力应变能力应变能力</div>
+						</div>
+						<div class="result-center-frame-line">
+							<img src="../../assets/img/evaluating/blue.png"/>
+							<div class="result-center-frame-line-text">销售能力销售能力销售能力</div>
+						</div>
+						<div class="result-center-frame-line">
+							<img src="../../assets/img/evaluating/violet.png"/>
+							<div class="result-center-frame-line-text">领导能力领导能力领导能力</div>
+						</div>
+					</div>
+				</div>
+				<div class="result-bottom">
+					<div class="result-bottom-line">
+						<div class="result-bottom-line-left">
+							   基础知识
+						</div>
+						<div class="result-bottom-line-right">
+							99<span>分</span>
+						</div>
+					</div>
+					<div class="result-bottom-line">
+						<div class="result-bottom-line-left">
+							  谈判能力
+						</div>
+						<div class="result-bottom-line-right">
+							99<span>分</span>
+						</div>
+					</div>
+					<div class="result-bottom-line">
+						<div class="result-bottom-line-left">
+							   领导能力
+						</div>
+						<div class="result-bottom-line-right">
+							99<span>分</span>
+						</div>
+					</div>
+					<div class="result-bottom-line">
+						<div class="result-bottom-line-left">
+							   号召力
+						</div>
+						<div class="result-bottom-line-right">
+							99<span>分</span>
+						</div>
+					</div>
+					<div class="result-bottom-line">
+						<div class="result-bottom-line-left">
+							   应变能力
+						</div>
+						<div class="result-bottom-line-right">
+							99<span>分</span>
+						</div>
+					</div>
+					<div class="result-bottom-line">
+						<div class="result-bottom-line-left">
+							   销售能力
+						</div>
+						<div class="result-bottom-line-right">
+							99<span>分</span>
+						</div>
+					</div>
+				</div>
+				<div class="personal-bottom"> 
+					<div class="personal-bottom-button"><a href="skill.html">查看岗位技能要求</a></div>
+					<div class="personal-bottom-button1"><a href="History.html">查看历史</a></div>
+				</div>
+			</div>
+			<div class="index-footer">
+				<div class="index-footer-frame">
+					<a href="../home/index.html">
+						<img src="../../assets/img/footer/index.png">
+						<img src="../../assets/img/footer/index1.png">
+						<div class="index-footer-line">首页</div>
+					</a>
+				</div>
+				<div class="index-footer-frame">
+					<a href="../evaluating/evaluating.html">
+						<img src="../../assets/img/footer/evaluating.png">
+						<img src="../../assets/img/footer/evaluating1.png">
+						<div class="index-footer-line">岗位评测</div>
+					</a>
+				</div>
+				<div class="index-footer-frame active">
+					<a href="personal.html">
+						<img src="../../assets/img/footer/personal.png">
+						<img src="../../assets/img/footer/personal1.png">
+						<div class="index-footer-line">我</div>
+					</a>
+				</div>
+			</div>
+		</div>
 	</body>
+	<script type="text/javascript" src="../../assets/js/echarts.min.js" ></script>
+	<script type="text/javascript" src="../../assets/js/result.js" ></script>
+	<script>
+			window.onload = function () {
+		        JieGuo()
+		   }
+			window.addEventListener("resize", function () {
+				JieGuo()
+			});
+		</script>
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/css.css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/reset.css"/>
+		<script type="text/javascript" src="../../assets/js/rem.js" ></script>
+	</head>
+	<body>
+		<div class="my">
+			<div class="my-frame">
+				<div class="my-header">
+					<a href="personal.html"><img src="../../assets/img/evaluating/return.png" class="entrance-header-return"/></a>
+					我的资料
+					<div class="entrance-header-right" id="edit">编辑</div>
+					<div class="entrance-header-right" id="save" style="display: none;">保存</div>
+				</div>
+				<div class="my-portrait">
+					<img src="../../assets/img/personal/portrait.png">
+				</div>
+				<div class="my-name">
+					欧阳木木
+				</div>
+			</div>
+			<div class="my-center">
+				<div class="my-center-line clearfix">
+					<div class="my-center-line-img"><img src="../../assets/img/personal/phone.png"></div>
+					<div class="my-center-line-text">手机号</div>
+					<div class="my-center-line-textr"><input value="1381234567" disabled></div>
+				</div>
+				<div class="my-center-line clearfix">
+					<div class="my-center-line-img"><img src="../../assets/img/personal/mima.png"></div>
+					<div class="my-center-line-text">密码</div>
+					<div class="my-center-line-textr"><input value="******" disabled></div>
+				</div>
+				<div class="my-center-line clearfix">
+					<div class="my-center-line-img"><img src="../../assets/img/personal/mail.png"></div>
+					<div class="my-center-line-text">邮箱</div>
+					<div class="my-center-line-textr"><input value="ouyangmm@itlead.com.cn" disabled></div>
+				</div>
+				<div class="my-center-line clearfix">
+					<div class="my-center-line-img"><img src="../../assets/img/personal/gongsi.png"></div>
+					<div class="my-center-line-text">公司</div>
+					<div class="my-center-line-textr"><input value="广州中睿信息" disabled></div>
+				</div>
+				<div class="my-center-line clearfix">
+					<div class="my-center-line-img"><img src="../../assets/img/personal/bumen.png"></div>
+					<div class="my-center-line-text">部门</div>
+					<div class="my-center-line-textr"><input value="产品部" disabled></div>
+				</div>
+				<div class="my-center-line clearfix">
+					<div class="my-center-line-img"><img src="../../assets/img/personal/gangwei.png"></div>
+					<div class="my-center-line-text">岗位</div>
+					<div class="my-center-line-textr"><input value="产品经理" disabled></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.querySelector("#edit").onclick = function(){
+			var input = document.querySelectorAll("input")
+			for(var i = 0;i<input.length;i++){
+				document.querySelectorAll("input")[i].disabled=false;
+				document.querySelector("#edit").style.display = "none"
+				document.querySelector("#save").style.display = "block"
+			}
+		}
+		document.querySelector("#save").onclick = function(){
+			var input = document.querySelectorAll("input")
+			for(var i = 0;i<input.length;i++){
+				document.querySelectorAll("input")[i].disabled=true;
+				document.querySelector("#edit").style.display = "block"
+				document.querySelector("#save").style.display = "none"
+			}
+		}
+	</script>
+</html>

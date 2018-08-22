@@ -1,6 +1,6 @@
 function JieGuo(){
 	var clientW = document.querySelector("body").clientWidth
-	document.querySelector("#main").style.height = 5*100 * (clientW/ 750) + "px" 
+	document.querySelector("#main").style.height = 4.8*100 * (clientW/ 750) + "px" 
 	
 	var myChart = echarts.init(document.getElementById('main'));
 	var option = {
@@ -8,59 +8,83 @@ function JieGuo(){
 		radar: {
 			// shape: 'circle',
 			indicator: [{
-					name: '软件设计',
+					name: '影响力',
 					max: 100
 				},
 				{
-					name: '产品规划',
+					name: '号召力',
 					max: 100
 				},
 				{
-					name: '软件过程',
+					name: '领导能力',
 					max: 100
 				},
 				{
-					name: '通用技能',
+					name: '基础知识',
 					max: 100
 				},
 				{
-					name: '战略能力',
+					name: '谈判能力',
+					max: 100
+				},
+				{
+					name: '销售能力',
+					max: 100
+				},
+				{
+					name: '应变能力',
+					max: 100
+				},
+				{
+					name: '交流能力',
 					max: 100
 				}
 			],
 			name: {
 				textStyle: {
-					fontSize: 14,
+					fontSize: 12,
 					color:['#666666']
 				}
 			},
 			splitArea: {
 				areaStyle: {
-					color: ['#ffffff']
+					color: ['#f1fcf9']
 				}
 			},
-	
+			splitLine : {
+                            show : true,
+                            lineStyle : {
+                                width : 1,
+                                color : '#6cdab9' // 图表背景网格线的颜色
+                            }
+                        }
 		},
 		series: [{
 			name: '评测结果',
 			type: 'radar',
 			// areaStyle: {normal: {}},
 			data: [{
-				value: [85, 79, 90, 85, 70],
+				value: [85, 79, 90, 85, 70,30,50,90,35],
 				name: '能力',
 				symbol: 'circle',
-				symbolSize: 15,
+				symbolSize: 13,
 				itemStyle: {
 					normal: {
-						color: '#8dd364',
-						borderColor: '#8dd364'
+						color: '#55ffdb',
+						borderColor: '#b8fff0',
+						borderWidth: 3,
 					}
 				},
+				lineStyle: {
+                                    color:"#5eeeeb" // 图表中各个图区域的边框线颜色
+                                },
 				areaStyle: {
 					normal: {
-						color: '#e8f6e0'
+						color: '#8ce7cc'
 					}
-				}
+				},
+				
+				
 			}],
 	
 		}]
