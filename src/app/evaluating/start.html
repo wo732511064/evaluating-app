@@ -7,48 +7,87 @@
 		<link rel="stylesheet" type="text/css" href="../../assets/css/css.css"/>
 		<link rel="stylesheet" type="text/css" href="../../assets/css/reset.css"/>
 		<script type="text/javascript" src="../../assets/js/rem.js" ></script>
+		<script src="../../assets/js/tagcloud.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<div class="index">
+		<div class="index padding-bottom-12">
 			<div class="entrance-header">
 				<a href="evaluating.html">
 					<img src="../../assets/img/evaluating/return.png" class="entrance-header-return"/>
-					岗位名称
 				</a>
-			</div>
-			<div class="evaluating-header">
-				<img src="../../assets/img/evaluating/start-header.png"/>
-			</div>
-			<div class="entrance-center">
-				<div class="entrance-center-text">
-					    产品经理（Product Manager）是企业中专门负责产品管理的职位，产品经理负责市场调查并根据用户的需求，确定开发何种产品选择何种技术、商业模式等。
-				</div>
-				<div class="entrance-center-title1">
-					核心技能
-				</div>
-				<div class="entrance-center-frame clearfix">
-					
-					<div class="entrance-center-line">
-						技术能力
-					</div>
-					<div class="entrance-center-line">
-						领导能力
-					</div>
-					<div class="entrance-center-line">
-						沟通能力
-					</div>
-					<div class="entrance-center-line">
-						管理业务的能力
-					</div>
-					<div class="entrance-center-line">
-						业务能力业务能力
-					</div>
-				</div>
-				<div class="entrance-button">
-					<a href="topic.html">开始评测</a>
-				</div>
+				Java开发工程师
 			</div>
 			
+			<div class="entrance-center margin-top-10">
+				<div class="entrance-center-header">
+					Java开发工程师
+				</div>
+				<div class="entrance-center-text">
+					   是拥有SUN公司JAVA认证的程序员。<br/>
+						SunJava认证分为两个级别:Sun认证Java程序员和Sun认证Java开发员。需精通java基础，java高级编程，及常用java设计模式，深入理解mvc编程模式，了解uml相关知识。
+				</div>
+
+			</div>
+			<div class="evaluating-header">
+				<div class="wrapper">
+				    <div class="tagcloud fr">
+				      <a href="#">技能N</a>
+				      <a href="#">小程序</a>
+				      <a href="#">技能N</a>
+				      <a href="#">技能N</a>
+				      <a href="#">C++</a>
+				      <a href="#">逻辑运算</a>
+				      <a href="#">JAVA</a>
+				      <a href="#">技能N</a>
+				      <a href="#">小程序</a>
+				      <a href="#">技能N</a>
+				      <a href="#">技能N</a>
+				      <a href="#">C++</a>
+				      <a href="#">逻辑运算</a>
+				      <a href="#">JAVA</a>
+				    </div>
+				    
+				</div><!--wrapper-->
+			</div>
+			<div class="entrance-button">
+				<a href="topic.html">开始评测</a>
+			</div>
+			<div class="index-footer">
+				<div class="index-footer-frame">
+					<a href="../home/index.html">
+						<img src="../../assets/img/footer/index.png">
+						<img src="../../assets/img/footer/index1.png">
+						<div class="index-footer-line">首页</div>
+					</a>
+				</div>
+				<div class="index-footer-frame active">
+					<a href="../evaluating/evaluating.html">
+						<img src="../../assets/img/footer/evaluating.png">
+						<img src="../../assets/img/footer/evaluating1.png">
+						<div class="index-footer-line">岗位评测</div>
+					</a>
+				</div>
+				<div class="index-footer-frame">
+					<a href="../personal/personal.html">
+						<img src="../../assets/img/footer/personal.png">
+						<img src="../../assets/img/footer/personal1.png">
+						<div class="index-footer-line">我</div>
+					</a>
+				</div>
+			</div>
 		</div>
+		
+		<script type="text/javascript">
+		    /*3D标签云*/
+		    tagcloud({
+		        selector: ".tagcloud",  //元素选择器
+		        fontsize: 16,       //基本字体大小, 单位px
+		        radius: 80,         //滚动半径, 单位px
+		        mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
+		        ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
+		        direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+		        keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+		    });
+		</script>
 	</body>
 </html>

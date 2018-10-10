@@ -257,74 +257,36 @@ function banner() {
 
 }
 function TiMu(){
-	for(var i in data1){
-		var div = document.createElement("div");
-		div.className = "entrance-bottom-frame-line";
-		document.querySelector(".entrance-bottom-frame").appendChild(div);
-		
-//		var beijing = document.createElement("div");
-//		beijing.className = "entrance-bottom-frame-beijing";
-//		document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(beijing);
-		
-		
-		var div2 = document.createElement("div");
-		div2.className = "entrance-bottom-frame-line-title";
-		div2.innerHTML = data1[i].title;
-		document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(div2);
-		
-		
-		
-		var divli1 = document.createElement("div");
-		divli1.innerHTML = parseInt(i) + 1;
-		
-		var timu = 1
-		for(var j in data1[i].xuanxiang){
-			var div3 = document.createElement("div");
-			div3.className = "entrance-bottom-frame-line-button";
-			var div3_id = document.createElement("div");
-			div3_id.className = "entrance-bottom-frame-line-button-id";
-			if(j == 0){
-				 div3_id.innerHTML = "A";
-			}else if(j == 1){
-				 div3_id.innerHTML = "B";
-			}else if(j == 2){
-				 div3_id.innerHTML = "C";
-			}else{
-				 div3_id.innerHTML = "D";
+	var topicButton = document.querySelectorAll(".topic-button")
+	var topicCenterDiv = document.querySelectorAll(".entrance-bottom-line-center div")
+	var frame_left = 0
+	var lineId = 0
+	for(let i = 0;i<topicButton.length;i++){
+		var divli = document.createElement("div");
+		divli.innerHTML = i+1;
+		document.querySelector(".topic-frameli").appendChild(divli);
+		topicButton[i].onclick = function(){
+			frame_left += -100
+			lineId++
+			for(let j=0;j<document.querySelectorAll(".topic-frameli div").length;j++){
+				removeClass(document.querySelectorAll(".topic-frameli div")[j],"active")
 			}
-			var div4 = document.createElement("div");
-			div4.className = "entrance-bottom-frame-line-button-frame";
-			div4.innerHTML = data1[i].xuanxiang[j];
-			div3.appendChild(div3_id)
-			div3.appendChild(div4);
-			document.querySelectorAll(".entrance-bottom-frame-line")[i].appendChild(div3);
-			timu++
+			document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+			addClass(document.querySelectorAll(".topic-frameli div")[lineId],"active")
+			
+			document.querySelector(".topic-frameli").scrollLeft = lineId * (document.querySelector(".topic-frameli div").offsetWidth +  parseInt(getStyle(document.querySelector(".topic-frameli div"),"marginRight")))
 		}
 	}
-	mintime = 1; 
-	var dact = document.querySelector(".entrance-bottom-frame-line")
-	var active = "active"
-	var none = "none"
-	addClass(dact, active)
-	var timu_id = 0
-	var select1 = 1
-	var frame_left = 0
-	document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-	document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu + " 题"
-	for(var i = 0;i<document.querySelectorAll(".entrance-bottom-frame-line-button").length;i++){
-		document.querySelectorAll(".entrance-bottom-frame-line-button")[i].onclick = function(){
-			if(timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1){
-				frame_left += -100
-				document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-				
-				timu_id++;
-				select1++;
-				document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu + " 题"
-				addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-				removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id-1], active)
-			}else{
-				window.location.href='resultSimplify.html';
+	addClass(document.querySelectorAll(".topic-frameli div")[lineId],"active")
+	for(let i = 0;i<topicCenterDiv.length;i++){
+		topicCenterDiv[i].onclick = function(){
+			
+			for(let j=0;j<topicCenterDiv.length;j++){
+				removeClass(topicCenterDiv[j],"active")
 			}
+			addClass(topicCenterDiv[i],"active")
+			console.log(1)
+			
 		}
 	}
 }
@@ -366,84 +328,4 @@ function getStyle(obj,attr){
   } 
 }
 
-
-//function CountDown() {
-//        minutes = Math.floor(mintime / 60);
-//       seconds = Math.floor(mintime % 60);
-//       if(minutes < 10){
-//       	minutes1 = "0" + minutes
-//       }else{
-//       	minutes1 = minutes
-//       }
-//       if(seconds < 10){
-//       	seconds1 = "0" + seconds
-//       }else{
-//       	seconds1 = seconds
-//       }
-//       msg =   minutes1 + ":" + seconds1;
-//       document.all["timer"].innerHTML = msg;
-////       if (maxtime == 5 * 60)alert("还剩5分钟");
-//           ++mintime;
-// 
-////       clearInterval(timer);
-//
-// }
-
-
-
-
-var data1 =[ {
-             "id" : "1",  
-             "title": "1. 众所周知我们所处的宇宙的质能公式是E=mc2，其中c是真空中的光速，和我们的宇宙平行的另一个宇宙meta，研究显示他们使用的质能公式是E=(2+√3)m，当一个物体质量m很大的时候，对应的能量E非常大，数据也非常的长，但meta宇宙里面的智慧生物只愿意把E取整，然后记录对应的能量E的最后一位整数，比如m=0时，他们会记录1，m=1时，他们会记录3。m=2的时候，他们会记录3。现在请问当m=100时，他们会记录多少？",  
-            
-             "xuanxiang":[
-             				"String",
-             				"int",
-             				"char",
-             				"void",
-             				]
-	
-        },{  
-             "id" : "2",  
-             "title": "编译和运行下面代码时显示的结果是（）",  
-            
-             "xuanxiang":[
-             				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
-             				"ClassCastException",
-             				"FileNotFoundException",
-             				"IndexOutOfBoundsException",
-             				]
-        },{  
-             "id" : "3",  
-             "title": "编译和运行下面代码时显示的结果是（）",  
-            
-             "xuanxiang":[
-             				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
-             				"ClassCastException",
-             				"FileNotFoundException",
-             				"IndexOutOfBoundsException",
-             				]
-        },{  
-             "id" : "4",  
-             "title": "编译和运行下面代码时显示的结果是（）",  
-            
-             "xuanxiang":[
-             				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
-             				"ClassCastException",
-             				"FileNotFoundException",
-             				"IndexOutOfBoundsException",
-             				]
-        },{  
-             "id" : "5",  
-             "title": "编译和运行下面代码时显示的结果是（）",  
-             
-             "xuanxiang":[
-             				"打开当前目录下的文件2.txt，既可以向文件写数据，也可以从文件读数据",
-             				"ClassCastException",
-             				"FileNotFoundException",
-             				"IndexOutOfBoundsException",
-             				]
-        }
-        ];
-        
 

@@ -48,14 +48,14 @@ function JieGuo(){
 			},
 			splitArea: {
 				areaStyle: {
-					color: ['#f1fcf9']
+					color: ['#ffffff']
 				}
 			},
 			splitLine : {
                             show : true,
                             lineStyle : {
                                 width : 1,
-                                color : '#6cdab9' // 图表背景网格线的颜色
+                                color : '#ca91db' // 图表背景网格线的颜色
                             }
                         }
 		},
@@ -69,18 +69,19 @@ function JieGuo(){
 				symbol: 'circle',
 				symbolSize: 13,
 				itemStyle: {
+					
 					normal: {
+						opacity:0,
 						color: '#55ffdb',
-						borderColor: '#b8fff0',
-						borderWidth: 3,
+						borderWidth: 0,
 					}
 				},
 				lineStyle: {
-                                    color:"#5eeeeb" // 图表中各个图区域的边框线颜色
+                                    color:"#ffffff" // 图表中各个图区域的边框线颜色
                                 },
 				areaStyle: {
 					normal: {
-						color: '#8ce7cc'
+						color: '#ca91db'
 					}
 				},
 				
