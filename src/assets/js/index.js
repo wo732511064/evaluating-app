@@ -13,18 +13,34 @@ function append(parent, text) {
       parent.appendChild(text);
     }
   }
+function append(parent, text) {
+    if (typeof text === 'string') {
+      var temp = document.createElement('div');
+      temp.innerHTML = text;
+      // 防止元素太多 进行提速
+      var frag = document.createDocumentFragment();
+      while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+      }
+      parent.appendChild(frag);
+    }
+    else {
+      parent.appendChild(text);
+    }
+  }
 function banner() {
 
 	//1 获取变量
 	// 屏幕的宽度
 	var width = document.body.offsetWidth;
-	// console.log(width);\
 
 	//  获取 轮播图的ul
 	var moveUl = document.querySelector('.banner_images');
 	var li1 = "<li></li>"
+	var linum = 0
 	for(var j=1;j<=document.querySelectorAll(".banner_images li").length-1;j++){
 			append(document.querySelector(".banner_index-frame"), li1);
+			linum++
 		}
 	// 索引的li标签
 	var indexLiArr = document.querySelectorAll('.banner_index li');
@@ -51,7 +67,9 @@ function banner() {
 
 	// 由于 移动的距离 无法确定 所以提取为参数
 	var setTransform = function(distance) {
+		
 		moveUl.style.transform = 'translateX(' + distance + 'px)';
+		
 	}
 
 	// 开启定时器
@@ -112,7 +130,6 @@ function banner() {
 		clearInterval(timeId);
 		startTransition();
 		index--;
-		console.log(index)
 		if(index < 0) {
 			// 跳到倒数第二张
 			
@@ -234,6 +251,7 @@ function banner() {
 
 		// 有一个 1的 差值
 		indexLiArr[index].className = 'current';
+		
 	})
 
 	window.onresize = function() {
@@ -244,7 +262,9 @@ function banner() {
 		timeId = setInterval(function() {
 			// 累加
 			index++;
-
+			if(index >= document.querySelectorAll(".banner_images li").length) {
+				index = 0
+			}
 			// 将 过渡开启 管你三七二十一 只要进来 就开启过渡 保证 过渡效果一直存在
 			// moveUl.style.transition = 'all .3s';
 			startTransition();
@@ -254,8 +274,81 @@ function banner() {
 			setTransform(index * width * -1);
 		}, 5000)
 	}
+	var start = 0
+	var tform = 0
+	function handlerTouchEvent(event){
+	    //只跟踪一次触摸
+	    if(event.touches.length==1 || event.touches.length==0){//书上这里有错
+	        switch(event.type){
+	            case "touchstart":
+	            	endTransition();
+	            	clearInterval(timeId);
+	              
+	               start = event.touches[0].clientX
+	                break;
+	            case "touchend":
+	            	if(start - event.changedTouches[0].clientX >= width/2){
+	            		if(index >= document.querySelectorAll(".banner_images li").length-1){
+	            			index = 0
+	            		}else{
+	            			index++
+	            		}
+	                	setTransform(index * width * -1);
+	               }else{
+	               		setTransform(index * width * -1);
+	               }
+	               
+	            	if(event.changedTouches[0].clientX - start >= width/2){
+	            		if(index <= 0){
+	            			index = document.querySelectorAll(".banner_images li").length-1
+	            		
+	            		}else{
+	            			index--
+	            		}
+	                	setTransform(index * width * -1);
+	               }else{
+	               		setTransform(index * width * -1);
+	               }
+	            	startTransition();
+	               
+	                timeId = setInterval(function() {
+						// 累加
+						index++;
+						if(index >= document.querySelectorAll(".banner_images li").length) {
+							index = 0
+						}
+						// 将 过渡开启 管你三七二十一 只要进来 就开启过渡 保证 过渡效果一直存在
+						// moveUl.style.transition = 'all .3s';
+						startTransition();
+			
+						// 修改 ul的位置
+						// moveUl.style.transform = 'translateX('+index*width*-1+'px)';
+						setTransform(index * width * -1);
+					}, 5000)
+	                break;
+	            case "touchmove":
+	                event.preventDefault(); //阻止滚动
+	                tform = index * width * -1 - (start - event.changedTouches[0].clientX)
+	                if(tform >= 0){
+						tform = 0
+					}
+					
+					if(tform <= -linum * width){
+						tform = -linum * width
+					}
+					setTransform(tform);
+	        }
+	    }
+	}
+		
+	moveUl.addEventListener('touchstart',handlerTouchEvent,false);
+    moveUl.addEventListener('touchmove',handlerTouchEvent,false);
+    moveUl.addEventListener('touchend',handlerTouchEvent,false);
 
 }
+
+
+
 function TiMu(){
 	var topicButton = document.querySelectorAll(".topic-button")
 	var topicCenterDiv = document.querySelectorAll(".entrance-bottom-line-center div")
